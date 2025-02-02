@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you go out with me?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #333;
+        }
+        .gif-container {
+            margin-top: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        .buttons a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            position: absolute;
+        }
+        .buttons a:hover {
+            background-color: #0056b3;
+        }
+        #noButton {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you go out with me?🥺💕</h1>
+        <div class="gif-container">
+            <img src="question.gif" alt="Question GIF" width="300">
+        </div>
+        <div class="buttons">
+            <a href="yes.html" style="left: 0;">Yes</a>
+            <a href="no.html" id="noButton" style="left: 100px;">No</a>
+        </div>
+    </div>
+    <script>
+        const noButton = document.getElementById('noButton');
+        noButton.addEventListener('mouseover', () => {
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+            
+            const x = Math.floor(Math.random() * (containerRect.width - buttonRect.width));
+            const y = Math.floor(Math.random() * (containerRect.height - buttonRect.height));
+            
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
